@@ -2,7 +2,7 @@ class Node {
   constructor(value) {
     this.id = `Tile-${value}`;
     this.value = value;
-    this.width = 2 * value;
+    this.width = 3 * value;
     this.next = null;
   }
 }

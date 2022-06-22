@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import GameOptionsComp from "./components/GameOptionsComp";
 import TowerComp from "./components/TowerComp";
 import WinMessageComp from "./components/WinMessageComp";
@@ -6,6 +7,7 @@ import Tower from "./utils/Tower";
 import "./App.css";
 
 const App = () => {
+  
   //Contar el numero de movimientos
   const [moveCount, setMoveCount] = useState(0);
   //El disco que se está movimiendo
@@ -37,13 +39,14 @@ const App = () => {
 
   useEffect(() => {
     //Resetear las torres
-    reset();
+    reset(); // Actualizar el primer render
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disks]);
 
   //Actualizar todos los discos de las torres
   //Esta actualización se hará con cada movimiento de las torres
   useEffect(() => {
+    console.log("Se ha actualizado la torre no. 1");
     setTiles(towerOne.disks.traverse());
   }, [towerOne]);
 
@@ -57,6 +60,19 @@ const App = () => {
 
   const reset = () => {
     //COMPLETAR
+    towerOne = new Tower();
+    towerTwo = new Tower();
+    towerThree = new Tower();
+    if (disks > 0) {
+      for (let i = disks; i > 0; i--) {
+        towerOne.add(i);
+      }
+    }
+    console.log(JSON.stringify(towerOne.disks.top));
+    setTowerOne(towerOne);
+    setTowerTwo(towerTwo);
+    setTowerThree(towerThree);
+    setMoveCount(0);
   };
 
   const handleDrag = (e, tile, id) => {
@@ -70,26 +86,43 @@ const App = () => {
   };
 
   const handleDrop = (e) => {
-    //Funcion que se lanza cada vez que un disco se deja en una nueva torre 
+    //Funcion que se lanza cada vez que un disco se deja en una nueva torre
     const dropColumn = e.currentTarget.id; //ID de la columna de destino
     let source = towers[dragTile.towerId].tower; //Torre de origen
     let destination = towers[dropColumn].tower; //Torre de destino
 
-    const goodMove = source.moveTopTo(destination); //Mover el disco desde la torre de origen al destino
-    if(goodMove){ //Si es un movimiento valido -> incrementar los movimientos
+    const goodMove = source.moveTopTo(destination, setMoveCount, moveCount); //Mover el disco desde la torre de origen al destino
+    if (goodMove) {
+      //Si es un movimiento valido -> incrementar los movimientos
       setMoveCount((prevState) => prevState + 1); //Actualizar los movimientos
+      setTiles(towerOne.disks.traverse()); //Actualizar los discos de la torre 1
+      setTilesTwo(towerTwo.disks.traverse()); //Actualizar los discos de la torre 2
+      setTilesThree(towerThree.disks.traverse()); //Actualizar los discos de la torre 3
     }
   };
 
   const solve = () => {
     //COMPLETAR
+    towerOne.moveDisks(disks, towerThree, towerTwo);
+    setMoveCount(0);
+    setTiles(towerOne.disks.traverse());
+    setTilesTwo(towerTwo.disks.traverse());
+    setTilesThree(towerThree.disks.traverse());
   };
 
-  const winCondition = false; //COMPLETAR
+  const winCondition =
+    towerOne.length === 0 && towerTwo.length === 0 ? true : false; //COMPLETAR
+
   return (
     <>
+
       <div className="container">
-        <GameOptionsComp disks={disks} />
+         <GameOptionsComp
+          disks={disks}
+          setDisks={setDisks}
+          reset={reset}
+          solve={solve}
+        />
         <div className="content">
           <TowerComp
             id={1}
@@ -104,15 +137,14 @@ const App = () => {
             handleDrop={handleDrop}
           />
           <TowerComp
+            
             id={3}
             disks={tilesThree}
             handleDrag={handleDrag}
             handleDrop={handleDrop}
           />
         </div>
-        {winCondition && (
-          <WinMessageComp moveCount={moveCount}/>
-        )}
+        {winCondition && <WinMessageComp moveCount={moveCount} />}
         Movimientos: {moveCount}
       </div>
     </>

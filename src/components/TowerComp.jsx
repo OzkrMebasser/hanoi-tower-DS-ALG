@@ -1,16 +1,17 @@
 const TowerComp = ({ id, disks, handleDrop, handleDrag }) => {
   return (
+    <>
     <div
-      className="column-container"
+      className="column-container border-radius"
       id={id}
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
-      <div className="center-bar" />
+      <div className="center-bar border-radius" />
       {disks.map((tile, index) => {
         const tileCount = disks.length;
         const tileStyles = {
-          width: `${tile.width}em`,
+          width: `${tile.width}em`,        
         };
         tileStyles.marginTop =
           index === 0 ? `calc(80vh - ${tileCount * 40 + 20}px)` : "0";
@@ -24,10 +25,21 @@ const TowerComp = ({ id, disks, handleDrop, handleDrag }) => {
             onDragStart={(e) => handleDrag(e, tile, id)}
             style={tileStyles}
           />
+          
         );
+        
       })}
+     
     </div>
+     
+    </>
   );
 };
 
 export default TowerComp;
+
+
+
+
+
+

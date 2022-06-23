@@ -18,9 +18,11 @@ const PopUp = (props) => {
         </Modal.Header>
         <Modal.Body>
           <h4>
-          Transfiera las barras a la torre más a la derecha en el mismo orden de clasificación.
-             <br/>           
-          No está permitido poner una barra encima de otra más pequeña.
+          El objetivo es tranferir los discos a la torre de la derecha en el mismo orden que estan al inicio, es decir, el disco mas grande abajo y el mas pequeño arriba.
+             <br/> <br/>            
+          No podras poner un disco mas grande encima de otro más pequeño.
+             <br/>  <br/>  
+          Agrega o quita discos para subir o bajar la complejidad del juego.         
           </h4>
         </Modal.Body>
         <Modal.Footer>

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Nav from "./components/Nav";
 import GameOptionsComp from "./components/GameOptionsComp";
 import TowerComp from "./components/TowerComp";
-import WinMessageComp from "./components/WinMessageComp";
 import Tower from "./utils/Tower";
 import "./App.css";
 
@@ -117,12 +116,16 @@ const App = () => {
     <>
 
       <div className="container">
+      < Nav/>
          <GameOptionsComp
           disks={disks}
           setDisks={setDisks}
           reset={reset}
           solve={solve}
+          moveCount={moveCount}
+          winCondition={winCondition}
         />
+       
         <div className="content">
           <TowerComp
             id={1}
@@ -144,8 +147,8 @@ const App = () => {
             handleDrop={handleDrop}
           />
         </div>
-        {winCondition && <WinMessageComp moveCount={moveCount} />}
-        Movimientos: {moveCount}
+        
+        
       </div>
     </>
   );

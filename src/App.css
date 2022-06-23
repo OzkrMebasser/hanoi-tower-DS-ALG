@@ -20,13 +20,12 @@
   align-items: flex-end;
   border: 2px solid grey;
   background: #eee8e8e1; 
-
-
-
-  height: 80vh;
+  /* border-bottom: url(images/title-borderbottom.jpg); */
+  border-bottom: 35px solid #DCB579;
+  height: 85vh;
   position: relative;
   width: 33.33%;
-  z-index: 0;
+  z-index: 1;
 }
 
 .base-column{
@@ -36,10 +35,12 @@
 }
 
 .center-bar {
-  background-color: #be9012;
+  background-color: #C8A165;
+  /* background-image: url(https://img.freepik.com/foto-gratis/fondo-madera-natural_24837-269.jpg?w=2000); */
   width: 15px;
-  height: 95%;
-  border: 1px solid rgba(252, 146, 8, 0.747);
+  height: 100%;
+  box-shadow: -8px 1px 2px -1px #aaa;
+  /* border: 1px solid rgba(252, 146, 8, 0.747); */
   position: absolute;
   left: 48%;
   z-index: -1;
@@ -48,15 +49,18 @@
 .tile {
   background-color: #6d92c7;
   /* border: 1px solid black; */
+  box-shadow: -8px 5px 2px 0px #aaa;
   border-radius: 20px;
-  height: 40px;
+  margin-top: 20px;
+  height: 35px;
   margin: auto;
   z-index: 10;
 }
 
 #Tile-1{
-background-color: #e7d803;
+background-color: #f7e70f;
 /* border: 1px solid rgb(211, 144, 1); */
+box-shadow: -8px 5px 2px 0px #aaa;
 border-radius: 5px;
 width: 30px;
 height: 40px;
@@ -65,8 +69,8 @@ z-index: 10;
 }
 
 #Tile-2{
-  background-color: #1ffc17;
- 
+background-color: #1ffc17;
+box-shadow: -8px 5px 2px 0px #aaa;
 /* border: 1px solid black; */
 border-radius: 5px;
 height: 40px;

@@ -1,3 +1,6 @@
+
+
+
 const TowerComp = ({ id, disks, handleDrop, handleDrag }) => {
   return (
     <>
@@ -31,7 +34,7 @@ const TowerComp = ({ id, disks, handleDrop, handleDrag }) => {
       })}
      
     </div>
-     
+    
     </>
   );
 };

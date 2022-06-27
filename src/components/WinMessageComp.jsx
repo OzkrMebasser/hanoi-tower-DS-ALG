@@ -1,14 +1,12 @@
-
-
-const WinMessageComp = () => {
+const WinMessageComp = ({ moveCount }) => {
   return (
     <div className="win-message">
-      Has ganado
+      {moveCount < 8 ? "!Excelente! " : "!Muy bien!"}
+
       <div className="win-subtitle">
-        Completaste el juego en <span className="win-number">0</span>{" "}
+        Completaste el juego en <span className="win-number">{moveCount}</span>{" "}
         movimientos
       </div>
-      
     </div>
   );
 };

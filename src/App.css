@@ -1,9 +1,35 @@
+.navSticky {
+  position: static;
+  z-index: 1000;
+}
 .text-title {
   font-weight: 700;
 }
 
-.border-radius{
+.border-radius {
   border-radius: 15px;
+}
+
+.titleH{
+  color: rgb(255, 0, 0);
+  
+}
+.titleA{
+  color: rgb(255, 238, 0);
+
+}
+.titleN{
+  color: #cc0d6c;
+
+}
+.titleO{
+  color: #ff9100;
+ 
+}
+
+.titleI{
+  color: #1ffc17;
+  
 }
 .content {
   /* border: 1px solid grey; */
@@ -18,94 +44,150 @@
 
 .column-container {
   align-items: flex-end;
-  border: 2px solid grey;
-  background: #eee8e8e1; 
+  /* border: 2px solid grey;
+  background: #eee8e8e1; */
   /* border-bottom: url(images/title-borderbottom.jpg); */
-  border-bottom: 35px solid #DCB579;
-  height: 85vh;
+  border-bottom: 35px solid #dcb579;
+  height: 80vh;
   position: relative;
   width: 33.33%;
   z-index: 1;
 }
 
-.base-column{
+.base-column {
   height: 20px;
   width: auto;
   background-color: #be9012;
 }
 
 .center-bar {
-  background-color: #C8A165;
+  background-color: #c8a165;
   /* background-image: url(https://img.freepik.com/foto-gratis/fondo-madera-natural_24837-269.jpg?w=2000); */
   width: 15px;
-  height: 100%;
+  height: 99%;
   box-shadow: -8px 1px 2px -1px #aaa;
   /* border: 1px solid rgba(252, 146, 8, 0.747); */
   position: absolute;
   left: 48%;
+  margin-top: 5px;
   z-index: -1;
 }
 
 .tile {
   background-color: #6d92c7;
   /* border: 1px solid black; */
-  box-shadow: -8px 5px 2px 0px #aaa;
+  box-shadow: -8px 1px 2px -1px #aaa;
   border-radius: 20px;
   margin-top: 20px;
   height: 35px;
   margin: auto;
   z-index: 10;
+  
 }
 
-#Tile-1{
-background-color: #f7e70f;
-/* border: 1px solid rgb(211, 144, 1); */
-box-shadow: -8px 5px 2px 0px #aaa;
-border-radius: 5px;
-width: 30px;
-height: 40px;
-margin: auto;
-z-index: 10;
+#Tile-1 {
+  background-color: #f7e70f;
+  /* border: 1px solid rgb(211, 144, 1); */
+  box-shadow: -8px 1px 2px -1px #aaa;
+  border-radius: 20px;
+  /* width: 30px; */
+  height: 40px;
+  margin: auto;
+  z-index: 10;
 }
 
-#Tile-2{
-background-color: #1ffc17;
-box-shadow: -8px 5px 2px 0px #aaa;
-/* border: 1px solid black; */
-border-radius: 5px;
-height: 40px;
-margin: auto;
-z-index: 10;
+#Tile-2 {
+  background-color: #1ffc17;
+  box-shadow: -8px 1px 2px -1px #aaa;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
 }
 
-#Tile-3{
+#Tile-3 {
   background-color: #cc0d6c;
-/* border: 1px solid black; */
-border-radius: 5px;
-height: 40px;
-margin: auto;
-z-index: 10;
+  box-shadow: -8px 1px 2px -1px #aaa;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
 }
-#Tile-4{
+#Tile-4 {
   background-color: #7400b8;
-/* border: 1px solid black; */
-border-radius: 5px;
-height: 40px;
-margin: auto;
-z-index: 10;
+  box-shadow: -8px 1px 2px -1px #aaa;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
 }
-#Tile-5{
+#Tile-5 {
   background-color: #ff9100;
-border: 1px solid black;
-border-radius: 5px;
-height: 40px;
-margin: auto;
-z-index: 10;
+  box-shadow: -8px 1px 2px -1px #aaa;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
 }
 
+#Tile-6 {
+  background-color: #ff0000;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
+}
+#Tile-7 {
+  background-color: #0011ff;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
+}
 
+#Tile-8 {
+  background-color: #f7e70f;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
+}
+#Tile-9 {
+  background-color: #1ffc17;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
+}
+#Tile-10 {
+  background-color: #ff0000;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  height: 40px;
+  margin: auto;
+  z-index: 10;
+}
 .win-message {
-  background-color: #3f3dab;
+  background: #dc2424; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4a569d,
+    #dc2424
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4a569d,
+    #dc2424
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 10px;
   color: #fff;
   font-size: 42px;
@@ -127,30 +209,21 @@ z-index: 10;
 }
 
 .win-number {
-  color: #2ff;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  font-weight: 800;
 }
 
-.blueback{
+.blueback {
   background-color: #3f3dab;
 }
 
-.game-wrapper {
-  display: flex;
-  align-items: center;
-  /* width: 90%; */
-  max-width: auto;
-  border-radius: 15px;
-  background-color: wheat;
-  animation-name: grow;
-  animation-duration: 1s;
-}
 
-@keyframes grow {
-  0% {
-      transform: scale(1.05);
-  }
-  100% {
-      transform: scale(1);
-  }
-}
 
+.iconimg {
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  height: 30px;
+  width: 35px;
+  margin-bottom: 6.5px;
+}

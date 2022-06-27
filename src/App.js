@@ -1,14 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { Watermark } from '@hirohe/react-watermark';
 import Nav from "./components/Nav";
 import GameOptionsComp from "./components/GameOptionsComp";
+import WinMessageComp from "./components/WinMessageComp";
 import TowerComp from "./components/TowerComp";
+import Confetti from 'react-confetti'
 import Tower from "./utils/Tower";
 import "./App.css";
 
 const App = () => {
-  
-  //Contar el numero de movimientos
-  const [moveCount, setMoveCount] = useState(0);
+
+  const [height, setHeight] = useState(null);
+  const [width, setWidth] = useState(null);
+  const [showConffeti, setShowConffeti] = useState(false);
+  const confettiRef = useRef(null);
+
+  useEffect(() => {
+    setHeight(confettiRef.height);
+    setWidth(confettiRef.width);
+  }, [])
+
+   //Contar el numero de movimientos
+  const [moveCount, setMoveCount] = useState(1);
   //El disco que se está movimiendo
   const [dragTile, setDragTile] = useState();
   //Los discos para la torre principal
@@ -45,16 +58,19 @@ const App = () => {
   //Actualizar todos los discos de las torres
   //Esta actualización se hará con cada movimiento de las torres
   useEffect(() => {
-    console.log("Se ha actualizado la torre no. 1");
+    // console.log("Se ha actualizado la torre no. 1");
+    console.log(towerOne)
     setTiles(towerOne.disks.traverse());
   }, [towerOne]);
 
   useEffect(() => {
     setTilesTwo(towerTwo.disks.traverse());
+    console.log(towerTwo)
   }, [towerTwo]);
 
   useEffect(() => {
     setTilesThree(towerThree.disks.traverse());
+    console.log(towerThree)
   }, [towerThree]);
 
   const reset = () => {
@@ -75,7 +91,7 @@ const App = () => {
   };
 
   const handleDrag = (e, tile, id) => {
-    //Funcion que se lanza cada vez que movemos un disco que se encuentra en la parte superior de una torre
+    //Drag un disco que se encuentra en la parte superior de una torre
     const dragTile = { tile, towerId: id };
     if (towers[id].tower.disks.top === dragTile.tile) {
       setDragTile(dragTile);
@@ -85,9 +101,10 @@ const App = () => {
   };
 
   const handleDrop = (e) => {
-    //Funcion que se lanza cada vez que un disco se deja en una nueva torre
+    //Drop un disco se deja en una nueva torre
     const dropColumn = e.currentTarget.id; //ID de la columna de destino
     let source = towers[dragTile.towerId].tower; //Torre de origen
+    // console.log(source)
     let destination = towers[dropColumn].tower; //Torre de destino
 
     const goodMove = source.moveTopTo(destination, setMoveCount, moveCount); //Mover el disco desde la torre de origen al destino
@@ -100,38 +117,38 @@ const App = () => {
     }
   };
 
-  const solve = () => {
-    //COMPLETAR
-    towerOne.moveDisks(disks, towerThree, towerTwo);
-    setMoveCount(0);
-    setTiles(towerOne.disks.traverse());
-    setTilesTwo(towerTwo.disks.traverse());
-    setTilesThree(towerThree.disks.traverse());
-  };
+ 
+  const winCondition = towerOne.size === 0 && towerTwo.size === 0; //COMPLETAR
 
-  const winCondition =
-    towerOne.length === 0 && towerTwo.length === 0 ? true : false; //COMPLETAR
+  const handleShow = showConffeti => {
+    setShowConffeti(showConffeti);
+  }
 
   return (
     <>
-
+  
+  < Nav/>
       <div className="container">
-      < Nav/>
+           
          <GameOptionsComp
           disks={disks}
           setDisks={setDisks}
           reset={reset}
-          solve={solve}
           moveCount={moveCount}
           winCondition={winCondition}
         />
-       
+       <Watermark 
+rotate={0}
+lineHeight={'5rem'}
+multiline={false}
+ text="h"
+ >
         <div className="content">
           <TowerComp
             id={1}
             disks={tiles}
             handleDrag={handleDrag}
-            handleDrop={handleDrop}
+            handleDrop={handleDrop}         
           />
           <TowerComp
             id={2}
@@ -139,17 +156,27 @@ const App = () => {
             handleDrag={handleDrag}
             handleDrop={handleDrop}
           />
-          <TowerComp
-            
+          <TowerComp 
             id={3}
             disks={tilesThree}
             handleDrag={handleDrag}
             handleDrop={handleDrop}
           />
-        </div>
+        </div>   
+        </Watermark> 
+        {winCondition  && <WinMessageComp moveCount={moveCount} /> }
         
+        {winCondition  && <Confetti
+      width={width}
+      height={height}
+      recycle={showConffeti}
+      numberOfPieces={1000}
+      
+    />}{() => handleShow(true)}
         
       </div>
+    
+      
     </>
   );
 };

@@ -1,6 +1,8 @@
-.navSticky {
+.navs {
   position: static;
   z-index: 1000;
+  height: 55px;
+  
 }
 .text-title {
   font-weight: 700;
@@ -63,7 +65,7 @@
 .center-bar {
   background-color: #c8a165;
   /* background-image: url(https://img.freepik.com/foto-gratis/fondo-madera-natural_24837-269.jpg?w=2000); */
-  width: 15px;
+  width: 16px;
   height: 99%;
   box-shadow: -8px 1px 2px -1px #aaa;
   /* border: 1px solid rgba(252, 146, 8, 0.747); */
@@ -77,6 +79,7 @@
   background-color: #6d92c7;
   /* border: 1px solid black; */
   box-shadow: -8px 1px 2px -1px #aaa;
+
   border-radius: 20px;
   margin-top: 20px;
   height: 35px;
@@ -97,7 +100,7 @@
 }
 
 #Tile-2 {
-  background-color: #1ffc17;
+  background-color: #065dff;
   box-shadow: -8px 1px 2px -1px #aaa;
   /* border: 1px solid black; */
   border-radius: 20px;
@@ -107,7 +110,7 @@
 }
 
 #Tile-3 {
-  background-color: #cc0d6c;
+  background-color: #ff0000;
   box-shadow: -8px 1px 2px -1px #aaa;
   /* border: 1px solid black; */
   border-radius: 20px;
@@ -116,7 +119,7 @@
   z-index: 10;
 }
 #Tile-4 {
-  background-color: #7400b8;
+  background-color: #33ff00;
   box-shadow: -8px 1px 2px -1px #aaa;
   /* border: 1px solid black; */
   border-radius: 20px;
@@ -125,7 +128,7 @@
   z-index: 10;
 }
 #Tile-5 {
-  background-color: #ff9100;
+  background-color: #ff7b00;
   box-shadow: -8px 1px 2px -1px #aaa;
   /* border: 1px solid black; */
   border-radius: 20px;
@@ -135,7 +138,7 @@
 }
 
 #Tile-6 {
-  background-color: #ff0000;
+  background-color: #cc0d6c;
   /* border: 1px solid black; */
   border-radius: 20px;
   height: 40px;

@@ -20,11 +20,11 @@ const App = () => {
     setWidth(confettiRef.width);
   }, [])
 
-   //Contar el numero de movimientos
+   //Contar los movimientos de los disks
   const [moveCount, setMoveCount] = useState(1);
-  //El disco que se está movimiendo
+  //Para jalar los disco de torre a torre
   const [dragTile, setDragTile] = useState();
-  //Los discos para la torre principal
+  //disks de la torre principal izquierdo e inicial
   const [disks, setDisks] = useState(3);
 
   //Los discos de cada torre (1, 2, 3)
@@ -32,7 +32,7 @@ const App = () => {
   const [tilesTwo, setTilesTwo] = useState([]);
   const [tilesThree, setTilesThree] = useState([]);
 
-  //Las 3 torres (columnas)
+  //Las 3 columnas
   let [towerOne, setTowerOne] = useState(new Tower());
   let [towerTwo, setTowerTwo] = useState(new Tower());
   let [towerThree, setTowerThree] = useState(new Tower());

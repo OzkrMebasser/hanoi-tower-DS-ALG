@@ -6,7 +6,7 @@ const Nav = () => {
       <>
 
 
-  <Navbar href="#home" lassName=" text-center" bg="dark" variant="dark">
+  <Navbar href="#home" className="navs align-middle" bg="dark" variant="dark" navs>
     <Container className=" text-center">
       <Navbar.Brand href="#home">
         

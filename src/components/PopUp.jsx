@@ -22,7 +22,7 @@ const PopUp = (props) => {
           <br /> <br />
           No podras poner un disco mas grande encima de otro más pequeño.
           <br /> <br />
-          Agrega o quita discos para subir o bajar la complejidad del juego.
+          Empieza con 3 discos primero, despues agrega o quita discos para subir o bajar la complejidad del juego.
           </strong>
         </p>
         

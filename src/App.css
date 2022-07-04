@@ -49,7 +49,7 @@
   /* border: 2px solid grey;
   background: #eee8e8e1; */
   /* border-bottom: url(images/title-borderbottom.jpg); */
-  border-bottom: 35px solid #dcb579;
+  border-bottom: 35px solid #c8a165;
   height: 80vh;
   position: relative;
   width: 33.33%;
@@ -59,7 +59,7 @@
 .base-column {
   height: 20px;
   width: auto;
-  background-color: #be9012;
+  background-color: #c8a165;
 }
 
 .center-bar {
